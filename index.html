@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Мини-игра Змейка на JS</title>
+    <link rel="stylesheet" href="main.css">   
+    
+</head>
+
+<body>
+
+    <div class="container">   
+        <h2>Мини-игра Змейка</h2>
+        Новая игра:
+        <button id="normal-mode-button">Нормальный режим</button>
+        <button id="greedy-mode-button">Средний режим</button>
+        <button id="fast-mode-button">Сложный режим</button>
+        <div id="game"></div>        
+    </div>
+    
+    <script type="text/javascript" src="snake.js"></script>
+    
+    <script type="text/javascript"> 
+        document.addEventListener('DOMContentLoaded', function() {
+            var normalModeButton = document.getElementById("normal-mode-button"),
+                greedyModeButton = document.getElementById("greedy-mode-button"),
+                fastModeButton = document.getElementById("fast-mode-button"),
+                gameDiv = document.getElementById("game");
+                
+            normalModeButton.addEventListener("click", function() {
+                new snakeGame(gameDiv);
+            });
+            greedyModeButton.addEventListener("click", function() {
+                new snakeGame(gameDiv, {gameMode: "greedy"});
+            });
+            fastModeButton.addEventListener("click", function() {
+                new snakeGame(gameDiv, {gameSpeed: 40});
+            });
+        });
+    </script>
+    
+</body>
+</html>
